@@ -1,8 +1,8 @@
 # Utiliser l'image officielle de MinIO
 FROM minio/minio:latest
 
-# Exposer les ports API (9000) et Console (9001)
-EXPOSE 9000 9001
+# Exposer un seul port pour l'API et la console
+EXPOSE 9000
 
-# Lancer MinIO avec l'API et la Console
-CMD ["minio", "server", "/data", "--address", "0.0.0.0:9000", "--console-address", "0.0.0.0:9001"]
+# Lancer MinIO avec l'API et la console via le même port
+CMD ["minio", "server", "/data", "--address", "0.0.0.0:9000", "--console-address", ":9000"]
