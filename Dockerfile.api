@@ -1,0 +1,7 @@
+FROM minio/minio:latest
+
+EXPOSE 9000
+
+VOLUME ["/data"]
+
+CMD ["minio", "server", "/data", "--address", "0.0.0.0:9000"]
