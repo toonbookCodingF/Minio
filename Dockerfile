@@ -1,8 +1,8 @@
 # Utiliser l'image officielle MinIO
 FROM minio/minio:latest
 
-# Installer NGINX
-RUN apt-get update && apt-get install -y nginx
+# Installer NGINX sur Alpine
+RUN apk update && apk add --no-cache nginx
 
 # Copier le fichier de configuration NGINX dans l'image Docker
 COPY nginx.conf /etc/nginx/nginx.conf
